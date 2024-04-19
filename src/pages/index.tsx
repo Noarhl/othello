@@ -5,11 +5,12 @@ const Home = () => {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+         Welcome to <a href="https://nextjs.org">welcome!</a>
         </h1>
 
         <p className={styles.description}>
           Get started by editing{' '}
+
           <code className={styles.code} style={{ backgroundColor: '#fafafa' }}>
             pages/index.js
           </code>
