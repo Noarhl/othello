@@ -4,6 +4,7 @@ import styles from './index.module.css';
 const Home = () => {
   const [turnColor, setTurnColor] = useState(1);
   const [board, setBoard] = useState([
+
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
@@ -16,16 +17,14 @@ const Home = () => {
   const clickHandler = (x: number, y: number) => {
     console.log(x, y);
     const newBoard = structuredClone(board);
-    newBoard[y][x] = 1;
+    if (board[y+1] !== undefined && board[y+1][x] === 2 / turnColor){
+      newBoard[y][x] = turnColor
+      setTurnColor(2/ turnColor)
+    }
+    setBoard(newBoard)
     setBoard(newBoard);
     newBoard[y][x] = turnColor;
-
-    if (turnColor === 1) {
-      setTurnColor(2);
-    } else {
-      setTurnColor(1);
-    }
-    setBoard(newBoard);
+    setTurnColor(2 / turnColor)
   };
   return (
     <div className={styles.container}>
