@@ -113,9 +113,6 @@ const Home = () => {
                   style={{ background: color === 1 ? '#000' : '#FFF' }}
                 />
               )}
-              {color === 3 && (
-                <div className={styles.condidate} style={{ background: '#CAE5CD' }} />
-              )}
             </div>
           )),
         )}
