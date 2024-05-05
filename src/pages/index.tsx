@@ -5,6 +5,8 @@ import {} from 'http';
 function newValid(x: number, y: number) {
   return x >= 0 && x < 8 && y >= 0 && y < 8;
 }
+const counter = [2, 2];
+let Color = 'Black';
 
 const directions = [
   [0, 1],
@@ -22,10 +24,10 @@ const Home = () => {
   const [board, setBoard] = useState([
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 3, 0, 0, 0],
-    [0, 0, 0, 1, 2, 3, 0, 0],
-    [0, 0, 3, 2, 1, 0, 0, 0],
-    [0, 0, 0, 3, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 2, 0, 0, 0],
+    [0, 0, 0, 2, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
   ]);
@@ -75,8 +77,29 @@ const Home = () => {
         }
       }
     }
+
+    counter[0] = 0;
+    counter[1] = 0;
+
+    for (const row of newBoard) {
+      for (let i = 0; i < 8; i++) {
+        if (row[i] === 1) {
+          counter[0]++;
+        }
+        if (row[i] === 2) {
+          counter[1]++;
+        }
+      }
+    }
     setBoard(newBoard);
   };
+
+  if (turnColor === 1) {
+    Color = 'Black';
+  }
+  if (turnColor === 2) {
+    Color = 'White';
+  }
 
   return (
     <div className={styles.container}>
@@ -97,9 +120,14 @@ const Home = () => {
           )),
         )}
       </div>
+      <div className={styles.turnandscore}>
+        turn:{Color}
+        <br />
+        Black:{counter[0]}
+        <br />
+        White:{counter[1]}
+      </div>
     </div>
   );
 };
 export default Home;
-
-<div className={styles.scoreboard} />;

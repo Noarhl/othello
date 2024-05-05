@@ -1,6 +1,6 @@
 .container {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -11,8 +11,8 @@
 .board {
   display: flex;
   flex-wrap: wrap;
-  width: 640px;
-  height: 640px;
+  width: 580px;
+  height: 580px;
   background-color: #c6edff;
 }
 
@@ -20,9 +20,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  border: 2px solid rgb(92 195 255);
+  width: 72.5px;
+  height: 72.5px;
+  border: 1.5px solid rgb(92 195 255);
 }
 
 .stone {
@@ -37,9 +37,12 @@
   border-radius: 50%;
 }
 
-.scoreboard {
-  left: 70%;
-  width: 320px;
-  height: 240px;
-  background-color: #000;
+.turnandscore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 580px;
+  font-size: 180%;
+  background-color: rgb(92 195 255);
 }
