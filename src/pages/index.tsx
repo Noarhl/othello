@@ -45,8 +45,6 @@ const Home = () => {
   };
 
   const clickHandler = (x: number, y: number) => {
-    console.log(x, y);
-    console.log(turnColor);
     const newBoard = structuredClone(board);
 
     if (newValid(x, y) && uncolor(x, y)) {
